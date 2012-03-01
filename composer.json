@@ -1,0 +1,18 @@
+{
+    "name": "rbutti/fbtabbp",
+    "description": "boilerplate facebook tabs",
+    "require": {
+        "silex/silex": "dev-master",
+        "twig/twig": "dev-master"
+    },
+    "authors": [
+        {
+            "name": "Roberto B.",
+            "email": "rbutti@h-art.it"
+        },
+        {
+            "name": "Flavio V.",
+            "email": "fvianello@h-art.it"
+        }
+    ]
+}

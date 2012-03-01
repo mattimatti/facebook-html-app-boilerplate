@@ -1,0 +1,40 @@
+<!doctype html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<title></title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<meta name="viewport" content="width=device-width">
+
+	<link rel="stylesheet" href="{{ app.request.baseurl }}/assets/css/style.css">
+
+	<script src="{{ app.request.baseurl }}/assets/js/libs/modernizr-2.5.3.min.js"></script>
+</head>
+<body>
+
+  {% block content %}
+  <div class="container">
+    FB TAB APP
+  </div>
+  {% endblock %}
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="{{ app.request.baseurl }}/assets/js/libs/jquery-1.7.1.min.js"><\/script>')</script>
+  <script type="text/javascript">
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/it_IT/all.js#xfbml=1";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'))
+    $(window).load(function() {
+      if (window.FB)
+        FB.Canvas.setAutoResize();
+    });
+  </script>
+</body>
+</html>
