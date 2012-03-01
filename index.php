@@ -1,6 +1,6 @@
 <?php
-require_once("phar://".__DIR__."/vendor/.composer/autoload.php");
-require_once("./lib/FBSignedRequest.php");
+require_once("./vendor/.composer/autoload.php");
+//require_once("./lib/FBSignedRequest.php");
 
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
