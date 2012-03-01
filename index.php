@@ -11,7 +11,7 @@ require_once("./lib/FBSignedRequest.php");
 $sr = new FBSignedRequest($_REQUEST, '2062f6a24e3a60d3521dca7078192bfc');
 
 
-$app = new Application();
+$app = new Silex\Application();
 
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
   'twig.path'       => __DIR__.'/views',
