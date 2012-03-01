@@ -7,6 +7,7 @@ $vendorDir = dirname(__DIR__);
 return array(
     'Twig_' => $vendorDir . '/twig/twig/lib/',
     'Symfony\\Component\\Routing' => $vendorDir . '/symfony/routing/',
+    'Symfony\\Component\\Process' => $vendorDir . '/symfony/process/',
     'Symfony\\Component\\HttpKernel' => $vendorDir . '/symfony/http-kernel/',
     'Symfony\\Component\\HttpFoundation' => $vendorDir . '/symfony/http-foundation/',
     'Symfony\\Component\\EventDispatcher' => $vendorDir . '/symfony/event-dispatcher/',
@@ -17,4 +18,5 @@ return array(
     'Silex' => $vendorDir . '/silex/silex/src/',
     'SessionHandlerInterface' => $vendorDir . '/symfony/http-foundation/Symfony/Component/HttpFoundation/Resources/stub',
     'Pimple' => $vendorDir . '/pimple/pimple/lib/',
+    'Assetic' => $vendorDir . '/kriswallsmith/assetic/src/',
 );
