@@ -3,7 +3,6 @@
 /.project
 /.buildpath
 /composer.phar
-/vendor
 /nbproject
 /composer.lock
 /cache/*
