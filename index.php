@@ -5,7 +5,7 @@ require_once("./vendor/.composer/autoload.php");
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
 
-use Silex\Application;
+use silex\application;
 use Symfony\Component\HttpFoundation\Response;
 
 $app = new Silex\Application();
