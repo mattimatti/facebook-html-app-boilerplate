@@ -1,24 +1,23 @@
 <?php
-var_dump($_REQUEST);
+require_once("./vendor/.composer/autoload.php");
+require_once("./lib/FBSignedRequest.php");
+
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
 
-require_once("./vendor/.composer/autoload.php");
 use Silex\Application;
 use Symfony\Component\HttpFoundation\Response;
-require_once("./lib/FBSignedRequest.php");
-
-$sr = new FBSignedRequest($_REQUEST, '2062f6a24e3a60d3521dca7078192bfc');
-
 
 $app = new Silex\Application();
+
+//$sr = new FBSignedRequest($_REQUEST, '2062f6a24e3a60d3521dca7078192bfc');
 
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
   'twig.path'       => __DIR__.'/views',
   'twig.class_path' => __DIR__.'/vendor/twig/lib',
 ));
 
-$app->get('/page/{slug}', function (Application $app, $slug) {
+$app->match('/page/{slug}', function (Application $app, $slug) {
   $template_name='pages/'.$app->escape($slug).'.twig';
   if (file_exists(__DIR__.'/views/'.$template_name)) {
   return $app['twig']->render($template_name, array(
@@ -30,7 +29,7 @@ $app->get('/page/{slug}', function (Application $app, $slug) {
   }
 });
 
-$app->get('/', function (Application $app) {
+$app->match('/', function (Application $app) {
   $template_name = "index.twig";
   return $app['twig']->render($template_name, array(
   ));
