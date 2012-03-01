@@ -8,7 +8,7 @@ ini_set("display_errors", 1);
 use silex\application;
 use Symfony\Component\HttpFoundation\Response;
 
-$app = new Silex\Application();
+$app = new silex\application();
 
 //$sr = new FBSignedRequest($_REQUEST, '2062f6a24e3a60d3521dca7078192bfc');
 
