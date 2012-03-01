@@ -5,10 +5,10 @@ require_once("./vendor/.composer/autoload.php");
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
 
-use silex\application;
+use Silex\Application;
 use Symfony\Component\HttpFoundation\Response;
 
-$app = new silex\application();
+$app = new Silex\Application();
 
 //$sr = new FBSignedRequest($_REQUEST, '2062f6a24e3a60d3521dca7078192bfc');
 
