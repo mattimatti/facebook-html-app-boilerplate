@@ -1,4 +1,4 @@
-<?php require_once __DIR__.'/silex.phar'; 
+<?php require_once __DIR__.'/vendor/silex/silex/autoload.php'; 
 
 $app = new Silex\Application(); 
 
