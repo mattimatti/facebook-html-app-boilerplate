@@ -13,10 +13,14 @@ $app['sr'] = $app->share(function() {
   return new FBSignedRequest($_REQUEST, 'e3cc1481ee0a48a6d280f4f0899d44f4');
 });
 
+$app['debug'] = true;
+
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path'       => __DIR__.'/views',
     'twig.class_path' => __DIR__.'/vendor/twig/lib',
 ));
+
+$app['twig']->addExtension(new Twig_Extension_Debug());
 
 $app->match('/page/{slug}', function (Application $app, $slug) {
   $template_name='pages/'.$app->escape($slug).'.twig';
