@@ -1,10 +1,15 @@
 <?php
-require_once("./vendor/.composer/autoload.php");
-use Silex\Application;
-use Symfony\Component\HttpFoundation\Response;
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
+
+require_once("./vendor/.composer/autoload.php");
+require_once("./lib/FBSignedRequest.php");
+use Silex\Application;
+use Symfony\Component\HttpFoundation\Response;
+
 $app = new Application();
+
+$sr = new FBSignedRequest($_REQUEST, 'e3cc1481ee0a48a6d280f4f0899d44f4');
 
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path'       => __DIR__.'/views',
@@ -12,11 +17,11 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
 ));
 
 $app->match('/page/{slug}', function (Application $app, $slug) {
-
   $template_name='pages/'.$app->escape($slug).'.twig';
   if (file_exists(__DIR__.'/views/'.$template_name)) {
     return $app['twig']->render($template_name, array(
       'slug' => $slug,
+      'sr' => $sr
     ));
   } else {
     $message = "Template ".$app->escape($slug)." not exists";
@@ -25,12 +30,10 @@ $app->match('/page/{slug}', function (Application $app, $slug) {
 });
 
 $app->match('/', function (Application $app) {
-  //echo ($app['request']->getBaseUrl());
   $template_name = "index.twig";
     return $app['twig']->render($template_name, array(
     ));
 });
-
 
 $app->error(function (\Exception $e, $code) use ($app) {
     switch ($code) {
