@@ -11,7 +11,7 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.class_path' => __DIR__.'/vendor/twig/lib',
 ));
 
-$app->get('/page/{slug}', function (Application $app, $slug) {
+$app->match('/page/{slug}', function (Application $app, $slug) {
 
   $template_name='pages/'.$app->escape($slug).'.twig';
   if (file_exists(__DIR__.'/views/'.$template_name)) {
@@ -24,7 +24,7 @@ $app->get('/page/{slug}', function (Application $app, $slug) {
   }
 });
 
-$app->get('/', function (Application $app) {
+$app->match('/', function (Application $app) {
   //echo ($app['request']->getBaseUrl());
   $template_name = "index.twig";
     return $app['twig']->render($template_name, array(
