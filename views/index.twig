@@ -4,7 +4,7 @@
 <div class="container">
   <h1>Facebook APP HTML boilerplate</h1>
   <p>You can access FB Signed Request with <strong>fb_data</strong></p>
-  <pre>{{ fb_data }}</pre>
+  <pre>{{ dump(fb_data) }}</pre>
   <p>Just a value of fb_data:</p>
   <pre>User liked the page? {{ fb_data['page']['liked'] }}</pre>
 </div>
