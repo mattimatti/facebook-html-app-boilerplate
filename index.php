@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 $app = new Application();
 
-$sr = new FBSignedRequest($_REQUEST, 'e3cc1481ee0a48a6d280f4f0899d44f4');
+$fb_app_secret_key = 'e3cc1481ee0a48a6d280f4f0899d44f4';
 
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path'       => __DIR__.'/views',
@@ -17,6 +17,7 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
 ));
 
 $app->match('/page/{slug}', function (Application $app, $slug) {
+  $sr = new FBSignedRequest($_REQUEST, $fb_app_secret_key);
   $template_name='pages/'.$app->escape($slug).'.twig';
   if (file_exists(__DIR__.'/views/'.$template_name)) {
     return $app['twig']->render($template_name, array(
@@ -30,6 +31,7 @@ $app->match('/page/{slug}', function (Application $app, $slug) {
 });
 
 $app->match('/', function (Application $app) {
+  $sr = new FBSignedRequest($_REQUEST, $fb_app_secret_key);
   $template_name = "index.twig";
     return $app['twig']->render($template_name, array(
       'fb_data' => $sr->getData()
