@@ -21,7 +21,7 @@ $app->match('/page/{slug}', function (Application $app, $slug) {
   if (file_exists(__DIR__.'/views/'.$template_name)) {
     return $app['twig']->render($template_name, array(
       'slug' => $slug,
-      'sr' => $sr
+      'fb_data' => $sr->getData()
     ));
   } else {
     $message = "Template ".$app->escape($slug)." not exists";
@@ -32,6 +32,7 @@ $app->match('/page/{slug}', function (Application $app, $slug) {
 $app->match('/', function (Application $app) {
   $template_name = "index.twig";
     return $app['twig']->render($template_name, array(
+      'fb_data' => $sr->getData()
     ));
 });
 
