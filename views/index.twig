@@ -8,10 +8,10 @@
       <p>An html boilerplate to make facebook tabs easy</p>
       <p>You're free to use the <a target="_blank" href="http://ckrack.github.com/fbootstrapp/">Facebook Bootstrap</a> or not just removing the head stylesheet.
       <p>You can access FB Signed Request with <strong>fb_data</strong></p>
-      <pre>{{ dump(fb_data) }}</pre>
+      <pre class="prettyprint">{{ dump(fb_data) }}</pre>
       {% if fb_data %}
       <p>Just a value of <strong>fb_data</strong>:</p>
-      <pre>Does the user liked the page? {{ dump(fb_data['page']['liked']) }}</pre>
+      <pre class="prettyprint">Does the user liked the page? {{ dump(fb_data['page']['liked']) }}</pre>
       {% endif %}
     </div>
   </div>
