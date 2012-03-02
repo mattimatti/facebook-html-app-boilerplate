@@ -6,6 +6,6 @@
   <p>You can access FB Signed Request with <strong>fb_data</strong></p>
   <pre>{{ dump(fb_data) }}</pre>
   <p>Just a value of fb_data:</p>
-  <pre>User liked the page? {{ fb_data['page']['liked'] }}</pre>
+  <pre>Does the user liked the page? {{ dump(fb_data['page']['liked']) }}</pre>
 </div>
 {% endblock %}
