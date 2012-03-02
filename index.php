@@ -38,7 +38,7 @@ $app->match('/page/{slug}', function (Application $app, $slug) {
 $app->match('/', function (Application $app) {
   $template_name = "index.twig";
     return $app['twig']->render($template_name, array(
-      'fb_data' => $app['sr']->getData()
+      'fb_data' => array('ciao'=>array('prova'=>'1'))//$app['sr']->getData()
     ));
 });
 
